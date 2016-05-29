@@ -4,9 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <title>MAQE</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="js/three.min.js"></script>
+  <script src="js/renderers/Projector.js"></script>
+  <script src="js/renderers/CanvasRenderer.js"></script>
+  <script src="js/libs/stats.min.js"></script>
 </head>
 <body>
-  <script src="js/base.js"></script>
+  <form>
+    Change text here:
+    <br>
+    <input type="text" name='text' id="card-text">
+    <br>
+    <input type="submit" value="Update">
+  </form>
+  <br>
+  <script src="maqe.js"></script>
 </body>
 </html>
