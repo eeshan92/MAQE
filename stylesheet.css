@@ -1,0 +1,37 @@
+body {
+	background-image: url("Images/paper\ tools.jpg");
+	background-size: 100%;
+}
+
+li {
+	list-style-type: none;
+	display: inline;
+}
+
+@font-face {
+    font-family: 'montserratlight';
+    src: url('Font/montserrat-light-webfont.woff2') format('woff2'),
+         url('Font/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#main-logo img {
+	width:200px;
+	position: absolute;
+	left: 50%;
+}
+
+#top-portion {
+	display: inline;
+}
+
+
+#home-welcome-text h1 {
+	color: white;
+	font-family: 'montserratlight';
+}
+
+
+
