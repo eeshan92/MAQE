@@ -43,8 +43,8 @@ nav {
 }
 
 .main-logo img {
-	height:50px;
-	padding-top:4px;
+	height:30px;
+	padding-top:11px;
 	padding-left: auto;
 	padding-right: auto;
 	margin:auto;
@@ -52,20 +52,22 @@ nav {
 }
 
 .main-logo {
-	text-align: center;		
+	text-align: center;	
+	padding-top: 15px;	
 }
 
 .nav-icons {
-	position: absolute;
+  position: absolute;
   right: 0;
   padding-right: 20px;
+  padding-top: 15px;
 }
 
 .nav-icons img {
 	border-collapse: collapse;
-	width: 35px;
+	width: 20px;
 	border: 1px solid black;
-	padding: 5px 5px 5px 5px;
+	padding: 10px;
 	margin: 4px 5px 5px 5px;
 }
 
