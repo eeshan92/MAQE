@@ -1,4 +1,6 @@
 (function(){
+  var canvas = document.getElementById('canvas-in');
+  var degrees = Math.PI/180;
   var container, stats;
   var camera, scene, renderer;
   var group;
@@ -17,7 +19,7 @@
 
   function init(font) {
     container = document.createElement( 'div' );
-    document.body.appendChild( container );
+    canvas.appendChild( container );
 
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.set( 0, 150, 500 );
@@ -39,9 +41,10 @@
     var wallCube = new THREE.BoxGeometry(400, 1, 200);
     var wallMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
     var backWall = new THREE.Mesh(wallCube, wallMat );
-    backWall.rotation.x = Math.PI/180 * 90;
-    backWall.position.set(0,150,0);
-    scene.add(backWall);
+    backWall.rotation.x = degrees * 90;
+    backWall.position.set(0,100,0);
+    group.add(backWall);
+    scene.add(group);
 
     var geometry = new THREE.TextGeometry( cardText, {
       font: font,
@@ -57,10 +60,9 @@
       new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
     ] );
     var mesh = new THREE.Mesh( geometry, material );
-    mesh.position.set(centerOffset,5,0);
-    mesh.rotation.x = 0;
-    mesh.rotation.y = Math.PI * 2;
-    group.position.set(0,50,0);
+    mesh.position.set(centerOffset,2,0);
+    mesh.rotation.x = degrees * -2;
+    group.position.set(0,100,0);
     group.add( mesh );
     scene.add( group );
 
