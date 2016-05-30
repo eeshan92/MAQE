@@ -13,7 +13,7 @@
   loader.load( 'fonts/helvetiker_regular.typeface.js', function ( font ) {
     init( font );
     animate();
-  } );
+  });
 
   function init(font) {
     container = document.createElement( 'div' );
@@ -24,7 +24,6 @@
     scene = new THREE.Scene();
 
     cardText = decodeURIComponent(document.location.search.substring("6")).replace(/\+/g, ' ');
-    console.log(cardText);
 
     var geometry = new THREE.TextGeometry( cardText, {
       font: font,
@@ -49,6 +48,22 @@
     group.add( mesh );
     scene.add( group );
 
+    // Add Cube for floor and wall
+    var cube = new THREE.CubeGeometry( 200, 1, 200);
+
+    // Floor
+    var floorMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
+    var floor = new THREE.Mesh(cube, floorMat);
+    group.add(floor);
+    scene.add(group);
+
+    // Back wall
+    var wallMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
+    var backWall = new THREE.Mesh(cube, wallMat );
+    backWall.rotation.x = Math.PI/180 * 90;
+    backWall.position.set(0,100,-100);
+    scene.add( backWall );
+
     renderer = new THREE.CanvasRenderer();
     renderer.setClearColor( 0xf0f0f0 );
     renderer.setPixelRatio( window.devicePixelRatio );
@@ -59,8 +74,8 @@
     container.appendChild( stats.domElement );
 
     // document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+    // document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    // document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
     window.addEventListener( 'resize', onWindowResize, false );
   }
@@ -73,47 +88,47 @@
     renderer.setSize( window.innerWidth, window.innerHeight );
   }
   //
-  function onDocumentMouseDown( event ) {
-    event.preventDefault();
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.addEventListener( 'mouseout', onDocumentMouseOut, false );
-    mouseXOnMouseDown = event.clientX - windowHalfX;
-    targetRotationOnMouseDown = targetRotation;
-  }
+  // function onDocumentMouseDown( event ) {
+  //   event.preventDefault();
+  //   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+  //   document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+  //   document.addEventListener( 'mouseout', onDocumentMouseOut, false );
+  //   mouseXOnMouseDown = event.clientX - windowHalfX;
+  //   targetRotationOnMouseDown = targetRotation;
+  // }
 
-  function onDocumentMouseMove( event ) {
-    mouseX = event.clientX - windowHalfX;
-    targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
-  }
+  // function onDocumentMouseMove( event ) {
+  //   mouseX = event.clientX - windowHalfX;
+  //   targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
+  // }
 
-  function onDocumentMouseUp( event ) {
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-  }
+  // function onDocumentMouseUp( event ) {
+  //   document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+  //   document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+  //   document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+  // }
 
-  function onDocumentMouseOut( event ) {
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-  }
+  // function onDocumentMouseOut( event ) {
+  //   document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+  //   document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+  //   document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+  // }
 
-  function onDocumentTouchStart( event ) {
-    if ( event.touches.length == 1 ) {
-      event.preventDefault();
-      mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-      targetRotationOnMouseDown = targetRotation;
-    }
-  }
+  // function onDocumentTouchStart( event ) {
+  //   if ( event.touches.length == 1 ) {
+  //     event.preventDefault();
+  //     mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
+  //     targetRotationOnMouseDown = targetRotation;
+  //   }
+  // }
 
-  function onDocumentTouchMove( event ) {
-    if ( event.touches.length == 1 ) {
-      event.preventDefault();
-      mouseX = event.touches[ 0 ].pageX - windowHalfX;
-      targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-    }
-  }
+  // function onDocumentTouchMove( event ) {
+  //   if ( event.touches.length == 1 ) {
+  //     event.preventDefault();
+  //     mouseX = event.touches[ 0 ].pageX - windowHalfX;
+  //     targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
+  //   }
+  // }
   //
   function animate() {
     requestAnimationFrame( animate );
