@@ -25,9 +25,27 @@
 
     cardText = decodeURIComponent(document.location.search.substring("6")).replace(/\+/g, ' ');
 
+    group = new THREE.Group();
+
+    // Floor
+    var floorCube = new THREE.BoxGeometry(400, 1, 200);
+    var floorMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
+    var floor = new THREE.Mesh(floorCube, floorMat);
+    floor.position.set(0,0,100);
+    group.add(floor);
+    scene.add(group);
+
+    // Back wall
+    var wallCube = new THREE.BoxGeometry(400, 1, 200);
+    var wallMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
+    var backWall = new THREE.Mesh(wallCube, wallMat );
+    backWall.rotation.x = Math.PI/180 * 90;
+    backWall.position.set(0,150,0);
+    scene.add(backWall);
+
     var geometry = new THREE.TextGeometry( cardText, {
       font: font,
-      size: 80,
+      size: 40,
       height: 20,
       curveSegments: 2
     });
@@ -39,30 +57,12 @@
       new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
     ] );
     var mesh = new THREE.Mesh( geometry, material );
-    mesh.position.x = centerOffset;
-    mesh.position.y = 100;
-    mesh.position.z = 0;
+    mesh.position.set(centerOffset,5,0);
     mesh.rotation.x = 0;
     mesh.rotation.y = Math.PI * 2;
-    group = new THREE.Group();
+    group.position.set(0,50,0);
     group.add( mesh );
     scene.add( group );
-
-    // Add Cube for floor and wall
-    var cube = new THREE.CubeGeometry( 200, 1, 200);
-
-    // Floor
-    var floorMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
-    var floor = new THREE.Mesh(cube, floorMat);
-    group.add(floor);
-    scene.add(group);
-
-    // Back wall
-    var wallMat = new THREE.MeshBasicMaterial({ color: 0xa8a8a8 });
-    var backWall = new THREE.Mesh(cube, wallMat );
-    backWall.rotation.x = Math.PI/180 * 90;
-    backWall.position.set(0,100,-100);
-    scene.add( backWall );
 
     renderer = new THREE.CanvasRenderer();
     renderer.setClearColor( 0xf0f0f0 );
