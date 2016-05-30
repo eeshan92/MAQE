@@ -1,5 +1,5 @@
 body {
-	background-image: url("Images/paper\ tools.jpg");
+	background-image: url("Images/paper\ tools_overlay.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width:100%;
@@ -95,20 +95,21 @@ nav {
 }
 
 
-.home-welcome-text {
+.email {
 	position: relative;
 	color: white;
 	font-family: 'montserratlight';
-	font-size: 25px;
+	font-size: 12px;
 	text-align: center;
-	padding-top: 200px;
+	padding-top: 150px;
 	letter-spacing: 6px;
 }
 
-.home-next-page-nav {
+.password {
 	position: relative;
+	color:white;
 	font-family: 'montserrathairline';
-	font-size: 17px;
+	font-size: 12px;
 	text-align: center;
 	padding-top: 20px;
 	letter-spacing: 4px;
