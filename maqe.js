@@ -18,14 +18,6 @@
   function init(font) {
     container = document.createElement( 'div' );
     document.body.appendChild( container );
-    
-    var info = document.createElement( 'div' );
-    info.style.position = 'absolute';
-    info.style.top = '10px';
-    info.style.width = '100%';
-    info.style.textAlign = 'center';
-    info.innerHTML = 'Title text';
-    container.appendChild( info );
 
     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.set( 0, 150, 500 );
@@ -44,7 +36,7 @@
 
     var centerOffset = -0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
     var material = new THREE.MultiMaterial( [
-      new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff, overdraw: 0.5 } ),
+      new THREE.MeshBasicMaterial( { color: 0xffb800, overdraw: 0.5 } ),
       new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
     ] );
     var mesh = new THREE.Mesh( geometry, material );
