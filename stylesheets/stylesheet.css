@@ -1,5 +1,5 @@
 body {
-	background-image: url("Images/paper\ tools.jpg");
+	background-image: url("../Images/paper\ tools.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width:100%;
@@ -16,8 +16,8 @@ li {
 
 @font-face {
     font-family: 'montserratlight';
-    src: url('fonts/montserrat-light-webfont.woff2') format('woff2'),
-         url('fonts/montserrat-light-webfont.woff') format('woff');
+    src: url('../fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -25,8 +25,8 @@ li {
 
 @font-face {
     font-family: 'montserrathairline';
-    src: url('fonts/montserrat-hairline-webfont.woff2') format('woff2'),
-         url('fonts/montserrat-hairline-webfont.woff') format('woff');
+    src: url('../fonts/montserrat-hairline-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-hairline-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
