@@ -1,5 +1,5 @@
 body {
-	background-image: url("../Images/paper\ tools.jpg");
+	background-image: url("../Images/maqe-in-bg.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	width:100%;
@@ -56,7 +56,7 @@ nav {
 	padding-top: 15px;	
 }
 
-.nav-icons2 {
+.nav-icons {
   position: absolute;
   right: 0;
   padding-right: 20px;
@@ -97,25 +97,57 @@ nav {
 }
 
 
-.home-welcome-text {
+.email {
 	position: relative;
 	color: white;
 	font-family: 'montserratlight';
-	font-size: 25px;
+	font-size: 12px;
 	text-align: center;
-	padding-top: 200px;
+	padding-top: 150px;
 	letter-spacing: 6px;
 }
 
-.home-next-page-nav {
+.password {
 	position: relative;
-	font-family: 'montserrathairline';
-	font-size: 17px;
+	color:white;
+	font-family: 'montserratlight';
+	font-size: 12px;
 	text-align: center;
 	padding-top: 20px;
 	letter-spacing: 4px;
 
 }
 
+.email input[type=text] {
+  height:40px;
+  border: none;
+  width: 350px;
+  margin-left:1px;
+  box-shadow: -7px 14px 0px -7px #ebebeb, 7px 14px 0px -7px #ebebeb;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  padding-left:10px;
+  font-size: 21px;
+}
+.email input[type=text]:focus {
+  outline: none;
+  box-shadow: -7px 14px 0px -7px #ffb800, 7px 14px 0px -7px #ffb800;
+}
+
+.password input[type=password] {
+  height:40px;
+  border: none;
+  width: 350px;
+  margin-left:1px;
+  box-shadow: -7px 14px 0px -7px #ebebeb, 7px 14px 0px -7px #ebebeb;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  padding-left:10px;
+  font-size: 21px;
+}
+.password input[type=password]:focus {
+  outline: none;
+  box-shadow: -7px 14px 0px -7px #ffb800, 7px 14px 0px -7px #ffb800;
+}
 
 
