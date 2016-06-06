@@ -3,7 +3,8 @@ var http = require('http'),
     fs = require('fs'),
     express = require("express"),
     app     = express(),
-    path    = require("path");
+    path    = require("path"),
+    xml = require('xml');
 
 //Lets define a port we want to listen to
 const PORT=8080; 
@@ -28,7 +29,20 @@ app.get('/',function(req,res){
 });
 
 app.get('/canvas_out',function(req,res){
-  res.sendFile(path.join(__dirname +'/canvas_out.html'));
+  res.sendFile(path.join(__dirname +'/canvas_out.html'))
+});
+
+app.get('/get_components', function(req,res) {
+  var style = req.params.style;
+  var dir = 'assets/images/svg/' + 'christmas/';
+  var array = [];
+  var files = fs.readdirSync(dir);
+  
+  files.forEach(function(file) {
+    array.push(file);
+  });
+
+  res.send(array);
 });
 
 app.get('/canvas_in',function(req,res){
