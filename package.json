@@ -1,0 +1,22 @@
+{
+  "name": "maqe",
+  "version": "1.0.0",
+  "description": "Beautiful cards for everyone",
+  "main": "components.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeshan92/MAQE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eeshan92/MAQE/issues"
+  },
+  "homepage": "https://github.com/eeshan92/MAQE#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
