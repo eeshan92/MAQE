@@ -5,8 +5,6 @@
   margin-left:auto;
   margin-right:auto;
 
-  padding: 1%;
-
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
 }
@@ -19,13 +17,13 @@
 }
 
 .cardbox {
-	width:500px;
-	height:300px;
+	width:600px;
+	height:400px;
 	background-color:#545454;
   margin-left:auto;
   margin-right:auto;
   margin-top:45px;
-  margin-bottom:auto;
+  margin-bottom:10px;
   transition: background-color 0.3s;
 }
 
