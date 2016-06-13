@@ -4,7 +4,6 @@
     .draggable({
       inertia: true,
       restrict: {
-        restriction: "parent",
         endOnly: true,
         elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
       },
@@ -47,7 +46,36 @@
       target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
     });
 
+    interact('.trash').dropzone({
+      accept: '.draggable',
+      overlap: 0.75,
+
+      ondropactivate: function (event) {
+        event.target.classList.add('drop-active');
+      },
+      ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+      },
+      ondragleave: function (event) {
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+      },
+      ondrop: function (event) {
+        var image = event.relatedTarget;
+        image.parentNode.removeChild(image);
+      },
+      ondropdeactivate: function (event) {
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+      }
+    });
+
     function dragMoveListener (event) {
+
       var target = event.target,
           // keep the dragged position in the data-x/data-y attributes
           x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
