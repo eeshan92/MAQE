@@ -1,7 +1,6 @@
 $(function () {
   $canvas = $("#canvas-out");
   $('.deco').click(function() {
-    console.log($(this).attr('value'));
     type = $(this).attr('value');
     $.ajax({
       url: "/get_components?type=" + type,
