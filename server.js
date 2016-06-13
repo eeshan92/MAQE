@@ -33,8 +33,8 @@ app.get('/canvas_out',function(req,res){
 });
 
 app.get('/get_components', function(req,res) {
-  var style = req.params.style;
-  var dir = 'assets/images/svg/' + 'christmas/';
+  var style = req.query.type;
+  var dir = 'assets/images/svg/' + style + '/';
   var array = [];
   var files = fs.readdirSync(dir);
   

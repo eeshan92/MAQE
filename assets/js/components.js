@@ -1,14 +1,16 @@
 $(function () {
   $canvas = $("#canvas-out");
-  $('#style').click(function() {
+  $('.deco').click(function() {
+    console.log($(this).attr('value'));
+    type = $(this).attr('value');
     $.ajax({
-      url: "/get_components",
+      url: "/get_components?type=" + type,
       dataType: 'json',
       success: function(result) {
         result.forEach(function(svg) {
           var img = $(document.createElement('img'));
           img.attr('class', 'draggable');
-          img.attr('src', 'images/svg/christmas/' + svg);
+          img.attr('src', 'images/svg/' + type + '/' + svg);
           $canvas.append(img);
         });
       },
