@@ -29,6 +29,19 @@ $(function () {
     removeExcess();
   });
 
+  $("#add-text").submit(function(e) {
+    e.preventDefault();
+    generateText($("input:text").val());
+  });
+
+  function generateText(text) {
+    var canvas = document.getElementById('canvas'),
+        context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.font = "60px serif";
+    context.fillText(text, 20, 80, 5000);
+  };
+
   function removeExcess() {
     $cardbox = $("#cardbox-body");
     $('.draggable').each(function(element) {
@@ -40,6 +53,8 @@ $(function () {
         ) {
         $(this).remove();
       }
-    })
-  }
+    });
+  };
+
+  generateText("Sample");
 });
