@@ -25,7 +25,9 @@
     camera.position.set( 0, 150, 500 );
     scene = new THREE.Scene();
 
-    cardText = decodeURIComponent(document.location.search.substring("6")).replace(/\+/g, ' ');
+    cardText = decodeURIComponent(document.location.search.substring("6")).replace(/\+/g, ' ').toUpperCase();
+
+    console.log(cardText.length)
 
     group = new THREE.Group();
 
@@ -56,7 +58,7 @@
 
     var centerOffset = -0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
     var material = new THREE.MultiMaterial( [
-      new THREE.MeshBasicMaterial( { color: 0xffb800, overdraw: 0.5 } ),
+      new THREE.MeshBasicMaterial( { color: 0x404040, overdraw: 0.5 } ),
       new THREE.MeshBasicMaterial( { color: 0x000000, overdraw: 0.5 } )
     ] );
     var mesh = new THREE.Mesh( geometry, material );
